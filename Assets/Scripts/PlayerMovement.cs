@@ -212,12 +212,13 @@ public class PlayerMovement : MonoBehaviour
         string text =
             "Movement Debug\n" +
             $"Grounded: {isGrounded}\n" +
+            $"Air Jump: {hasAirJump}\n" +
             $"Speed: {horizontal.magnitude:F2}\n" +
             $"Velocity: {rb.linearVelocity:F2}\n" +
             $"Input: {moveInput:F2}\n" +
             "F3+Shift: toggle debug, F3+1 overlay, F3+2 gizmos";
 
-        GUI.Box(new Rect(12f, 12f, 360f, 132f), text);
+        GUI.Box(new Rect(12f, 12f, 360f, 152f), text);
     }
 
     private void OnDrawGizmos()
