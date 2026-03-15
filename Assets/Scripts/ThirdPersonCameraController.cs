@@ -92,6 +92,11 @@ public class ThirdPersonCameraController : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
+        if (Mathf.Abs(mouseX) < 0.0001f && Mathf.Abs(mouseY) < 0.0001f)
+        {
+            return;
+        }
+
         yaw += mouseX * mouseXSensitivity * Time.deltaTime;
         pitch -= mouseY * mouseYSensitivity * Time.deltaTime;
         pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
