@@ -127,13 +127,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyJumpAndGravity()
     {
-        if (jumpQueued && isGrounded)
+        if (jumpQueued)
         {
-            float jumpVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            Vector3 v = rb.linearVelocity;
-            v.y = jumpVelocity;
-            rb.linearVelocity = v;
-            isGrounded = false;
+            if (isGrounded)
+            {
+                float jumpVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                Vector3 v = rb.linearVelocity;
+                v.y = jumpVelocity;
+                rb.linearVelocity = v;
+                isGrounded = false;
+                hasAirJump = true;
+            }
+            else if (hasAirJump)
+            {
+                float jumpVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                Vector3 v = rb.linearVelocity;
+                v.y = jumpVelocity;
+                rb.linearVelocity = v;
+                hasAirJump = false;
+            }
         }
 
         jumpQueued = false;
