@@ -23,8 +23,13 @@ script = ExtResource("1_ulcgi")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1914728613]
 shape = SubResource("CapsuleShape3D_nxogm")
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=753793687]
-transform = Transform3D(1, 0, 0, 0, 0.9753693, 0.22057828, 0, -0.22057828, 0.9753693, 0.011246264, 1.4153073, 3.0880198)
+[node name="CameraPivot" type="SpringArm3D" parent="CharacterBody3D" unique_id=888888888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+spring_length = 3.0
+margin = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraPivot" unique_id=753793687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1228821571]
 mesh = SubResource("CapsuleMesh_ulcgi")
