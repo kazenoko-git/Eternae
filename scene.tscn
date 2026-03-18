@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c6yexaul0duf7"]
+
+[ext_resource type="Script" uid="uid://crw737ibbmch7" path="res://character_body.gd" id="1_ulcgi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nxogm"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ulcgi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ulcgi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nxogm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3253y"]
+albedo_color = Color(0, 0.6798703, 0.1493944, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1591209786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24891567, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1031468358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.195811, 0)
+script = ExtResource("1_ulcgi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1914728613]
+shape = SubResource("CapsuleShape3D_nxogm")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=753793687]
+transform = Transform3D(1, 0, 0, 0, 0.9753693, 0.22057828, 0, -0.22057828, 0.9753693, 0.011246264, 1.4153073, 3.0880198)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1228821571]
+mesh = SubResource("CapsuleMesh_ulcgi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2032184837]
+transform = Transform3D(-0.2024259, -0.1806835, -0.9624848, -0.09964987, -0.9739299, 0.20378989, -0.9742144, 0.13716389, 0.17914355, -4.967461, 7.111222, 5.2105403)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1613932637]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1572432601]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+shape = SubResource("BoxShape3D_ulcgi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1533924957]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -1.1754243, 0)
+mesh = SubResource("BoxMesh_nxogm")
+surface_material_override/0 = SubResource("StandardMaterial3D_3253y")
